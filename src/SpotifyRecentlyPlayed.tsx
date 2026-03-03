@@ -10,7 +10,7 @@ interface SpotifyTrack {
     playedAt: string;
 }
 
-const SPOTIFY_API_URL = 'https://spotify-api-khaki.vercel.app/api/spotify';
+const SPOTIFY_API_URL = 'https://api.pratikthombare.in/api/spotify';
 
 export default function SpotifyRecentlyPlayed() {
     const [tracks, setTracks] = useState<SpotifyTrack[]>([]);

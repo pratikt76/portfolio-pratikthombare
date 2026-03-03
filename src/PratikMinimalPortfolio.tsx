@@ -77,7 +77,7 @@ const TRIVIA = [
     { q: 'What does OOP stand for?', a: 'object oriented programming' },
 ];
 
-const SPOTIFY_API = 'https://spotify-api-khaki.vercel.app/api/spotify';
+const SPOTIFY_API = 'https://api.pratikthombare.in/api/spotify';
 
 const WALLPAPERS = ['city', 'mountains', 'space', 'forest', 'ocean', 'f1', 'cricket', 'none'] as const;
 type WallpaperName = typeof WALLPAPERS[number];
