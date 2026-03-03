@@ -685,7 +685,7 @@ function runCommand(
 
         /* ── project shortcuts (hidden) ── */
         case 'llvis':
-            window.open('https://llvis.vercel.app/', '_blank');
+            window.open('https://pratikthombare.in/llvis/', '_blank');
             return { lines: [{ type: 'success', content: '  Opening LLVis...' }] };
         case 'flagmaster':
             window.open('https://pratikt76.github.io/FlagMaster/', '_blank');
