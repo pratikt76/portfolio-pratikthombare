@@ -5,6 +5,10 @@
             "destination": "https://llvis.vercel.app/llvis/"
         },
         {
+            "source": "/llvis/",
+            "destination": "https://llvis.vercel.app/llvis/"
+        },
+        {
             "source": "/llvis/:path*",
             "destination": "https://llvis.vercel.app/llvis/:path*"
         },
