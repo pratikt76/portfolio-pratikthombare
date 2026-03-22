@@ -13,6 +13,18 @@
             "destination": "https://llvis.vercel.app/llvis/:path*"
         },
         {
+            "source": "/f1",
+            "destination": "https://f1-pitwall-five.vercel.app/f1"
+        },
+        {
+            "source": "/f1/",
+            "destination": "https://f1-pitwall-five.vercel.app/f1/"
+        },
+        {
+            "source": "/f1/:path*",
+            "destination": "https://f1-pitwall-five.vercel.app/f1/:path*"
+        },
+        {
             "source": "/(.*)",
             "destination": "/index.html"
         }

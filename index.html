@@ -1,30 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
-  <script>
-    (function () {
-      var t = localStorage.getItem('terminal-theme');
-      var themes = ['dark', 'light', 'monokai', 'dracula', 'nord'];
-      if (!t || themes.indexOf(t) === -1) {
-        t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      }
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pratik Thombare</title>
+  <title>Pratik Thombare — Software Developer</title>
   <meta name="description"
-    content="Pratik Thombare — SDE at Bajaj Finserv. Spring Boot developer specializing in robust backend architecture and high-performance systems." />
+    content="Pratik Thombare — Software Developer at Bajaj Finserv. Building robust backend systems with Java, Spring Boot, and microservices architecture." />
+  <meta name="author" content="Pratik Thombare" />
+  <meta property="og:title" content="Pratik Thombare — Software Developer" />
+  <meta property="og:description"
+    content="Software Developer specializing in Java, Spring Boot, and high-performance backend systems." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 </head>
 
-<body class="antialiased" style="font-family: 'Inter', system-ui, -apple-system, sans-serif;">
+<body class="antialiased" style="font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #030303;">
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
