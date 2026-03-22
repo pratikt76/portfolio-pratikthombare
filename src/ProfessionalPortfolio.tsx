@@ -217,28 +217,6 @@ function SpotifyWidget() {
     );
 }
 
-/* ═══════════════════════════════════════════════════════
-   MARQUEE
-   ═══════════════════════════════════════════════════════ */
-
-function TechMarquee() {
-    const allSkills = Object.values(SKILLS).flat();
-    const duplicated = [...allSkills, ...allSkills, ...allSkills];
-
-    return (
-        <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
-            <div className="flex gap-3 marquee-track">
-                {duplicated.map((skill, i) => (
-                    <span key={`${skill}-${i}`} className="text-[11px] px-3 py-1.5 rounded-full border border-white/[0.06] text-zinc-500 whitespace-nowrap shrink-0 font-medium">
-                        {skill}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
-}
 
 /* ═══════════════════════════════════════════════════════
    TIME WIDGET
@@ -298,9 +276,6 @@ export default function ProfessionalPortfolio() {
                     className="flex items-center justify-between mb-8 sm:mb-12"
                 >
                     <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-[13px] font-mono font-bold text-white tracking-tighter">
-                            {'{ }'}
-                        </div>
                     </div>
                     <div className="flex items-center gap-3">
                         <a
@@ -430,16 +405,6 @@ export default function ProfessionalPortfolio() {
                         </div>
                     </motion.div>
 
-                    {/* ── TECH MARQUEE (full width) ── */}
-                    <motion.div
-                        {...fadeUp}
-                        transition={{ duration: 0.6, delay: 0.35 }}
-                        className="md:col-span-2 lg:col-span-4"
-                    >
-                        <div className="p-5 rounded-3xl border border-white/[0.06] bg-[#0a0a0a]">
-                            <TechMarquee />
-                        </div>
-                    </motion.div>
 
                     {/* ── EXPERIENCE SECTION (spans 2 cols) ── */}
                     <motion.div
@@ -609,7 +574,7 @@ export default function ProfessionalPortfolio() {
                     className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 py-6 px-2 text-xs text-zinc-600"
                 >
                     <span>© {new Date().getFullYear()} Pratik Thombare</span>
-                    <span>Built with React + TypeScript</span>
+                    <span>✦ vibe-coded with Antigravity</span>
                 </motion.footer>
             </div>
 
