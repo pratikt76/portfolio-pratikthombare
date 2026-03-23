@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
     Github, Linkedin, FileText, Mail, ExternalLink,
@@ -6,6 +7,7 @@ import {
     Server, Database, Cloud, Brain, ChevronRight
 } from 'lucide-react';
 import ContactModal from './ContactModal';
+import AboutModal from './AboutModal';
 
 /* ═══════════════════════════════════════════════════════
    DATA
@@ -248,6 +250,9 @@ function TimeWidget() {
 export default function ProfessionalPortfolio() {
     const [contactOpen, setContactOpen] = useState(false);
     const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const aboutOpen = location.pathname === '/about';
 
     const fadeUp = {
         initial: { opacity: 0, y: 30 },
@@ -322,10 +327,20 @@ export default function ProfessionalPortfolio() {
                                             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                                             <span className="text-xs font-medium text-zinc-500 tracking-wide">Available for opportunities</span>
                                         </div>
-                                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-5">
-                                            <span className="text-zinc-100">{PERSONAL.name}</span>
+                                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.9] mb-5 group/name cursor-default">
+                                            <span className="text-zinc-100 inline-block transition-all duration-500 group-hover/name:text-white group-hover/name:drop-shadow-[0_0_25px_rgba(147,197,253,0.3)] group-hover/name:-translate-y-0.5">{PERSONAL.name}</span>
                                             <br />
-                                            <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                                            <span
+                                                className="bg-clip-text text-transparent inline-block transition-all duration-700 group-hover/name:-translate-y-0.5"
+                                                style={{
+                                                    backgroundImage: 'linear-gradient(90deg, #60a5fa, #3b82f6, #a855f7, #60a5fa)',
+                                                    backgroundSize: '200% 100%',
+                                                    backgroundPosition: '0% 0%',
+                                                    transition: 'background-position 0.7s ease, transform 0.5s ease, filter 0.5s ease',
+                                                }}
+                                                onMouseEnter={(e) => { e.currentTarget.style.backgroundPosition = '100% 0%'; e.currentTarget.style.filter = 'drop-shadow(0 0 30px rgba(168,85,247,0.4))'; }}
+                                                onMouseLeave={(e) => { e.currentTarget.style.backgroundPosition = '0% 0%'; e.currentTarget.style.filter = 'none'; }}
+                                            >
                                                 {PERSONAL.lastName}
                                             </span>
                                         </h1>
@@ -356,16 +371,24 @@ export default function ProfessionalPortfolio() {
                         </TiltCard>
                     </motion.div>
 
-                    {/* ── ABOUT CARD ── */}
+                    {/* ── ABOUT CARD (clickable → opens modal) ── */}
                     <motion.div
                         {...fadeUp}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="lg:col-span-2"
                     >
-                        <div className="h-full p-7 rounded-3xl border border-white/[0.06] bg-[#0a0a0a] hover:border-white/[0.1] transition-all duration-500">
-                            <div className="flex items-center gap-2.5 mb-4">
-                                <Sparkles className="w-4 h-4 text-blue-400" />
-                                <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-zinc-500">About</span>
+                        <div
+                            onClick={() => navigate('/about')}
+                            className="h-full p-7 rounded-3xl border border-white/[0.06] bg-[#0a0a0a] hover:border-white/[0.1] transition-all duration-500 cursor-pointer group"
+                        >
+                            <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center gap-2.5">
+                                    <Sparkles className="w-4 h-4 text-blue-400" />
+                                    <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-zinc-500">About</span>
+                                </div>
+                                <span className="text-xs text-zinc-600 group-hover:text-zinc-400 transition-colors flex items-center gap-1">
+                                    View more <ArrowUpRight className="w-3 h-3" />
+                                </span>
                             </div>
                             <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {PERSONAL.bio}
@@ -580,6 +603,8 @@ export default function ProfessionalPortfolio() {
 
             {/* Contact Modal */}
             <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
+            {/* About Modal */}
+            <AboutModal isOpen={aboutOpen} onClose={() => navigate('/')} />
         </div>
     );
 }
