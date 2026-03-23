@@ -59,9 +59,9 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                         onClick={onClose}
                     />
 
-                    {/* Modal — horizontal layout */}
+                    {/* Modal — responsive layout */}
                     <motion.div
-                        className="relative w-full max-w-3xl bg-[#0a0a0a] border border-white/[0.08] rounded-3xl shadow-2xl overflow-hidden"
+                        className="relative w-full max-w-3xl max-h-[90vh] bg-[#0a0a0a] border border-white/[0.08] rounded-3xl shadow-2xl overflow-hidden"
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -70,18 +70,28 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                         {/* Glow accent */}
                         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-10" />
 
-                        <div className="flex flex-col md:flex-row">
-                            {/* LEFT — Info */}
-                            <div className="flex-1 min-w-0">
-                                {/* Close button */}
-                                <button
-                                    onClick={onClose}
-                                    className="absolute top-5 left-5 z-20 p-2 rounded-xl text-zinc-400 hover:text-white hover:bg-white/[0.06] transition-all"
-                                >
-                                    <X className="w-4 h-4" />
-                                </button>
+                        {/* Close button */}
+                        <button
+                            onClick={onClose}
+                            className="absolute top-4 right-4 z-30 p-2 rounded-xl bg-black/40 backdrop-blur-sm text-zinc-300 hover:text-white hover:bg-white/[0.1] transition-all"
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
 
-                                <div className="px-7 pt-16 pb-7 space-y-5">
+                        <div className="overflow-y-auto max-h-[90vh] flex flex-col md:flex-row">
+                            {/* MOBILE — Photo Banner (visible only on small screens) */}
+                            <div className="md:hidden relative w-full h-48 shrink-0">
+                                <img
+                                    src={INFO.photo}
+                                    alt={INFO.name}
+                                    className="absolute inset-0 w-full h-full object-cover object-top"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+                            </div>
+
+                            {/* Info Section */}
+                            <div className="flex-1 min-w-0">
+                                <div className="px-6 md:px-7 pt-5 md:pt-16 pb-7 space-y-5">
                                     {/* Name & Title */}
                                     <div>
                                         <div className="flex items-center gap-2 mb-2">
@@ -159,14 +169,13 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
                                 </div>
                             </div>
 
-                            {/* RIGHT — Photo */}
+                            {/* DESKTOP — Photo Side Panel (hidden on mobile) */}
                             <div className="hidden md:block w-[280px] shrink-0 relative">
                                 <img
                                     src={INFO.photo}
                                     alt={INFO.name}
                                     className="absolute inset-0 w-full h-full object-cover object-top"
                                 />
-                                {/* Subtle gradient blending into the left side */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/40 to-transparent" />
                             </div>
                         </div>
