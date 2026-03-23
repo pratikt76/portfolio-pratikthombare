@@ -101,7 +101,6 @@ const SOCIAL = [
     { label: 'GitHub', url: 'https://github.com/pratikt76', icon: Github },
     { label: 'LinkedIn', url: 'https://linkedin.com/in/pratikt76', icon: Linkedin },
     { label: 'Resume', url: 'https://drive.google.com/file/d/1VLOhNIh_EFSARD6z6wfiM8OpADZmWSq3/view?usp=sharing', icon: FileText },
-    { label: 'Email', url: 'mailto:pratikthombare76@gmail.com', icon: Mail },
 ];
 
 const SPOTIFY_API = 'https://api.pratikthombare.in/api/spotify';
