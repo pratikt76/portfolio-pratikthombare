@@ -159,7 +159,7 @@ function SpotifyWidget() {
                         .map((t: any) => ({
                             name: t.name, artist: t.artist,
                             art: t.albumImageUrl || t.albumArt || '',
-                            url: t.songUrl || '#'
+                            url: t.spotifyUrl || '#'
                         }));
                     setTracks(unique);
                 }
