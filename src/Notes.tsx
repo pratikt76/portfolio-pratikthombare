@@ -116,6 +116,7 @@ export default function Notes() {
 
     // --- Data Operations ---
     const fetchNotes = async () => {
+        if (!supabase) { setIsLoading(false); return; }
         setIsLoading(true);
         const { data, error } = await supabase
             .from('notes')
@@ -129,6 +130,7 @@ export default function Notes() {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!supabase) { setError('Database not configured'); return; }
         setIsSubmitting(true);
         const { data } = await supabase
             .from('admin_auth')
@@ -159,6 +161,7 @@ export default function Notes() {
         const extractedTags = Array.from(content.matchAll(/#(\w+)/g)).map(match => match[1].toLowerCase());
 
         setIsSubmitting(true);
+        if (!supabase) return;
         try {
             if (editingNoteId) {
                 const { data, error: dbError } = await supabase
@@ -207,11 +210,13 @@ export default function Notes() {
     };
 
     const deleteNote = async (id: string) => {
+        if (!supabase) return;
         const { error } = await supabase.from('notes').delete().eq('id', id);
         if (!error) setNotes(notes.filter(n => n.id !== id));
     };
 
     const togglePin = async (id: string, currentStatus: boolean) => {
+        if (!supabase) return;
         const { error } = await supabase
             .from('notes')
             .update({ is_pinned: !currentStatus })
@@ -228,7 +233,7 @@ export default function Notes() {
                 const updatedItems = (note.items || []).map(item =>
                     item.id === itemId ? { ...item, checked: !item.checked } : item
                 );
-                supabase.from('notes').update({ items: updatedItems }).eq('id', noteId).then();
+                supabase?.from('notes').update({ items: updatedItems }).eq('id', noteId).then();
                 return { ...note, items: updatedItems };
             }
             return note;
