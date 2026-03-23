@@ -66,8 +66,20 @@ const EXPERIENCE = [
 
 const PROJECTS = [
     {
-        title: 'LLVis', desc: 'Interactive visualization tool for exploring LLM architectures and attention patterns.',
-        tags: ['React', 'TypeScript', 'AI/ML'], color: 'from-violet-500/20 to-fuchsia-500/20',
+        title: 'Parkin', desc: 'Smart parking management — optimizing slot allocation and availability.',
+        tags: ['Java', 'Spring Boot'], color: 'from-blue-500/20 to-cyan-500/20',
+        borderColor: 'hover:border-blue-500/30',
+        github: 'https://github.com/pratikt76/Parkin', demo: null,
+    },
+    {
+        title: 'VelocityCSS', desc: 'Lightweight CSS utility framework — faster styling without bloat.',
+        tags: ['CSS', 'JavaScript'], color: 'from-amber-500/20 to-yellow-500/20',
+        borderColor: 'hover:border-amber-500/30',
+        github: 'https://github.com/pratikt76/VelocityCSS', demo: 'https://pratikt76.github.io/VelocityCSS/',
+    },
+    {
+        title: 'LLVis', desc: 'Interactive visualization tool for exploring linked list operations and data structure patterns.',
+        tags: ['React', 'TypeScript', 'DSA'], color: 'from-violet-500/20 to-fuchsia-500/20',
         borderColor: 'hover:border-violet-500/30',
         github: null, demo: 'https://pratikthombare.in/llvis/',
     },
@@ -82,18 +94,6 @@ const PROJECTS = [
         tags: ['React', 'REST API', 'Game'], color: 'from-emerald-500/20 to-teal-500/20',
         borderColor: 'hover:border-emerald-500/30',
         github: 'https://github.com/pratikt76/FlagMaster', demo: 'https://pratikt76.github.io/FlagMaster/',
-    },
-    {
-        title: 'Parkin', desc: 'Smart parking management — optimizing slot allocation and availability.',
-        tags: ['Java', 'Spring Boot'], color: 'from-blue-500/20 to-cyan-500/20',
-        borderColor: 'hover:border-blue-500/30',
-        github: 'https://github.com/pratikt76/Parkin', demo: null,
-    },
-    {
-        title: 'VelocityCSS', desc: 'Lightweight CSS utility framework — faster styling without bloat.',
-        tags: ['CSS', 'JavaScript'], color: 'from-amber-500/20 to-yellow-500/20',
-        borderColor: 'hover:border-amber-500/30',
-        github: 'https://github.com/pratikt76/VelocityCSS', demo: 'https://pratikt76.github.io/VelocityCSS/',
     },
 ];
 
