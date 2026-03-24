@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Mail, Phone, Github, Linkedin, FileText, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { X, MapPin, Mail, Phone, Github, Linkedin, FileText, Instagram, ArrowUpRight } from 'lucide-react';
 
 interface AboutModalProps {
     isOpen: boolean;
@@ -22,7 +22,7 @@ const LINKS = [
     { label: 'GitHub', url: 'https://github.com/pratikt76', icon: Github, color: 'group-hover:text-white' },
     { label: 'LinkedIn', url: 'https://linkedin.com/in/pratikt76', icon: Linkedin, color: 'group-hover:text-[#0A66C2]' },
     { label: 'Resume', url: 'https://drive.google.com/file/d/1VLOhNIh_EFSARD6z6wfiM8OpADZmWSq3/view?usp=sharing', icon: FileText, color: 'group-hover:text-emerald-400' },
-    { label: 'Portfolio', url: 'https://pratikthombare.in', icon: ExternalLink, color: 'group-hover:text-blue-400' },
+    { label: 'Instagram', url: 'https://www.instagram.com/pratik.76/', icon: Instagram, color: 'group-hover:text-pink-400' },
 ];
 
 export default function AboutModal({ isOpen, onClose }: AboutModalProps) {

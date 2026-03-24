@@ -103,3 +103,20 @@ body {
 .animate-pulse {
     animation: gentle-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* ═══════════════════════════════════════════
+   CUSTOM CURSOR (hide default on desktop)
+   ═══════════════════════════════════════════ */
+
+.cursor-none,
+.cursor-none * {
+    cursor: none !important;
+}
+
+/* Restore default cursor on touch/mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-none,
+    .cursor-none * {
+        cursor: auto !important;
+    }
+}

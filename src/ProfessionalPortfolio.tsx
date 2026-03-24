@@ -8,6 +8,10 @@ import {
 } from 'lucide-react';
 import ContactModal from './ContactModal';
 import AboutModal from './AboutModal';
+import StarfieldBackground from './StarfieldBackground';
+import CustomCursor from './CustomCursor';
+import CommandPalette from './CommandPalette';
+import KonamiEasterEgg from './KonamiEasterEgg';
 
 /* ═══════════════════════════════════════════════════════
    DATA
@@ -34,7 +38,7 @@ const SKILLS_ICONS: Record<string, React.FC<{ className?: string }>> = {
 
 const SKILLS: Record<string, string[]> = {
     'Languages': ['Java (8/11/17)', 'SQL', 'JavaScript', 'TypeScript'],
-    'Frameworks': ['Spring Boot', 'Spring MVC', 'JPA / Hibernate', 'RESTful API', 'JUnit', 'Mockito'],
+    'Frameworks': ['Spring Boot', 'Spring MVC', 'JPA / Hibernate', 'RESTful API', 'WebSocket', 'JUnit', 'Mockito'],
     'Databases': ['MySQL', 'PostgreSQL', 'Cosmos DB', 'MongoDB'],
     'Cloud & DevOps': ['Docker', 'Kubernetes', 'Azure Cloud', 'CI/CD', 'Git', 'Maven'],
     'Concepts': ['Microservices', 'System Design', 'Perf Optimization', 'Agile/Scrum'],
@@ -259,15 +263,23 @@ export default function ProfessionalPortfolio() {
     };
 
     return (
-        <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
+        <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden cursor-none">
+            {/* ── CUSTOM CURSOR ── */}
+            <CustomCursor />
+
+            {/* ── COMMAND PALETTE (Ctrl+K) ── */}
+            <CommandPalette onContact={() => setContactOpen(true)} onAbout={() => navigate('/about')} />
+
+            {/* ── KONAMI CODE EASTER EGG ── */}
+            <KonamiEasterEgg />
+
+            {/* ── ANIMATED STARFIELD BACKGROUND ── */}
+            <StarfieldBackground />
+
             {/* ── NOISE TEXTURE OVERLAY ── */}
             <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.015]"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }}
             />
-
-            {/* ── GRADIENT BLOBS ── */}
-            <div className="fixed top-0 right-0 w-[800px] h-[800px] bg-blue-600/[0.03] rounded-full blur-[180px] pointer-events-none" />
-            <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 
